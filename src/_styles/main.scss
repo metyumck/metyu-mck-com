@@ -1,0 +1,354 @@
+// Normalize Styles
+@import 'node_modules/normalize.css/normalize';
+
+//Bourbon/Neat
+@import 'bourbon';
+@import 'neat';
+
+// Import Modules
+@import '../_modules/link/link';
+
+// Box sizing partial styles:
+// Apply a natural box layout model to all elements
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  color:#F0FFFF;
+  background-color:lighten(#178DB0,50%);
+  position:relative;
+  font-family: 'Montserrat', arial;
+  
+}
+
+$text-colour: rgb(240,255,255);
+$nav-colour: darken($text-colour, 10%);
+$menutext-colour: #33444e;
+
+.main-nav {
+  height:50px;
+  background-color:$nav-colour;
+  border-left:10px solid $nav-colour;
+  border-right:10px solid $nav-colour;
+
+  ul {
+    float:right;
+    margin:0px;
+    li {
+      padding-top:15px;
+      padding-left:20px;
+      display:inline-block;
+      &:hover {
+        font-weight:700;
+      }
+
+      label {
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing:0.5em;
+        color: $menutext-colour;
+        
+        &:visited {
+
+        }
+      }
+    }
+  }
+
+
+}
+
+@include media(max-width 769px) {
+  .main-nav {
+    display:none;
+  }
+}
+
+.nav-menu {
+  display:none;
+}
+
+.nav-toggle-checkbox {
+  display:none;
+}
+
+@include media(max-width 769px) {
+    .nav-menu {
+      display:block;
+      color:#f0ffff;
+      position:fixed;
+      top:5px;
+      right:5px;
+      z-index:998;
+     
+    }
+    .nav-toggle:before {
+      cursor:pointer;
+      font-size:4em;
+      position:absolute;
+      right: 5px;
+      display:inline-block;
+      content:'\2261';
+    }
+
+    .nav-toggle-checkbox:checked + .main-nav {
+      display:block;
+    }
+
+    .main-nav {
+      @extend .main-nav;
+      @include position(fixed, 0px 0px 0px auto);
+      @include size(220px 100%)
+      background:#575757;
+      color:$text-colour;
+      .menu-close:before {
+        cursor:pointer;
+        font-size:1em;
+        position:absolute;
+        right: 5px;
+        display:inline-block;
+        content:'\2716';
+      }
+
+      ul {
+        padding-top:20px;
+        li{
+          padding-left:0px;
+          label{
+            color:$text-colour;
+          }
+        }
+      }
+      z-index:999;
+    }
+  }
+
+
+
+.container {
+  height:800px;
+  background: url('../images/DSC_0455-version1.jpg') no-repeat center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border-left:10px solid $nav-colour;
+  border-right:10px solid $nav-colour;
+  @include outer-container(100%);
+  .name {
+    display:block;
+    p {color:#F0FFFF;}
+    @include span-columns(12);
+    padding:30px;
+    text-transform: uppercase;
+    font-size: 2em;
+    .front-end {
+      color:darken(rgb(240,255,255), 10%);
+    }
+  }
+  .button-container {
+    display:block;
+    padding:30px;
+    @include media(max-width 420px) {
+      text-align: center;
+    }
+    button.cta, a.cta {
+      font-size:1em;
+      padding: 30px;
+      letter-spacing:0.5em;
+      &:hover {
+        background-color:rgba(0,0,0,0);
+        border: 1px solid #40E0D0;
+      }
+    }   
+
+  }
+
+
+}
+
+@include media(max-width 769px) {
+  .main, .main-nav {
+    border:none;
+  }
+
+  .container {
+    border:none;
+  }
+
+  .main:before, .main:after {
+    height:0px;
+  }
+}
+
+button.cta, a.cta {
+  font-size:1em;
+  color:$text-colour;
+  text-decoration: none;
+  background-color:#40E0D0;
+  padding: 15px;
+  border:none;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  &:hover {
+    background-color:rgba(0,0,0,0);
+    border: 1px solid #40E0D0;
+    color:#40E0D0;
+  }
+  
+}
+
+
+
+h1, h2, p {
+    color:#33444e;
+}
+
+h1 {
+  letter-spacing: 0.5em;
+  text-transform:uppercase;
+  font-size:2em;
+  margin:0px;
+}
+
+.about-matt {
+  @include outer-container(100);
+  padding-top:50px;
+  padding-bottom:40px;
+  text-align:center;
+  position:relative;
+
+  h1 {
+    margin-bottom:30px;
+  }
+
+
+  img {
+    border-radius:50%;
+    border:10px solid $menutext-colour;
+    max-width:40%;
+    margin-bottom: 30px;
+  }
+
+  p {
+    font-family: 'Helvetica Neue', Helvetica, serif;
+    max-width:80%;
+    margin:0px auto;
+    margin-bottom:40px;
+    text-align:left;
+    font-weight: 200;
+    font-size:1.5em;
+    letter-spacing: 1px;
+    border-left: 1px solid #575757;
+    padding:0px 0px 0px 40px;
+
+  }
+  
+}
+
+.about-matt:after {
+  position:absolute;
+  content:'';
+  left:50%;
+  bottom:-40px;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  
+  border-top: 40px solid lighten(#178DB0,50%);
+  margin-left:-35px;
+}
+
+
+//The work (portfolio)
+
+.image {
+  text-align: center;
+  img {
+    max-width:70%;
+  }
+}
+
+
+
+.portfolio {
+  h1 {
+    padding-top: 70px;
+  }
+  background-color:white;
+  text-align:center;
+  @include outer-container(100);
+  .work {
+    @include span-columns(12);
+
+  }
+
+  .description {
+    font-family: 'Helvetica Neue', Helvetica, serif;
+    max-width:80%;
+    margin:0px auto;
+    margin-bottom:40px;
+    text-align:left;
+    font-weight: 200;
+    font-size:1.5em;
+    letter-spacing: 1px;
+    border-left: 1px solid #575757;
+    padding:0px 0px 0px 40px;
+  }
+}
+
+//Footer
+footer {
+  height:300px;
+  background-color: $menutext-colour;
+  p {
+    color: $text-colour;
+  }
+  a {
+    color: $text-colour;
+    text-decoration: none;
+    &:hover {
+
+    }
+    &:visited {
+      color: $text-colour;
+    }
+  }
+  @include outer-container(100);
+  .contact {
+    margin-top: 80px;
+    @include span-columns(3);
+    @include shift(2);
+    h3 {
+      margin:10px 0px;
+    }
+    @include media(max-width 420px) {
+      @include span-columns(8)
+      text-align: center;
+    }
+  }
+
+  
+}
+
+//Sliding menu panel code.
+
+.sliding-menu-panel {
+  
+
+
+}
+
+
+// Styling on warning for users on IE7 or below
+.browsehappy {
+  text-align: center;
+  margin: 0;
+  background: #fff8e2;
+  color: #000;
+  padding: 0.5em 0;
+}

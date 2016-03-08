@@ -1,0 +1,66 @@
+extends _layouts/base
+
+include _modules/link/link
+
+block content
+  input.nav-toggle-checkbox(type="checkbox" id="nav-toggle" name="nav-toggle")
+  .main-nav
+    label.menu-close(for="nav-toggle")
+    ul
+      li 
+        label(for="nav-toggle" id="about-matt-link") About
+      li 
+        label(for="nav-toggle" id="portfolio-link") Portfolio
+      li 
+        label(for="nav-toggle" id="contact-link") Contact
+
+
+
+  section.main
+
+    .container
+      .nav-menu
+        label.nav-toggle(for="nav-toggle")
+        
+      .name
+        p. 
+          Matthew <br> McKenzie. <br> <span class="front-end">Front <br> End <br> Developer.</span><br><br><br>
+      .button-container
+        a(href="#").cta#see-portfolio See portfolio
+
+    .about-matt#about-matt
+      h1 Who is Matt?
+
+      p.
+        Matt is an enthusastic, primarily self-taught web developer from Sydney, Australia. He loves to create beautiful websites using all the latest tools. As well as getting his hands dirty making websites, web apps are also a primary focus of Matt's time. Please take a moment to have look at some examples.
+    .portfolio#portfolio
+      h1 Portfolio
+
+      .first-work.work
+        
+        
+        .description
+          h2 Reakt 4
+          p.
+            Reakt 4 is a connect four style game built with React and Firebase. It was built on the premise that a game could take place across the web by simply sending a link and without either party having to login or be authenticated. The game uses a meaningless hash of various browser fingerprint components to identify each player over the course of a game.
+          .image
+            img(src="images/react4.png")
+
+        button(onclick="location.href='reakt-four';").cta See it in action!
+      .second-work.work
+        .image
+        .description
+      .third-work.work
+        .image
+        .description
+  footer
+    #contact.contact
+      h3 GitHub
+      a(href="https://github.com/metyumck") metyumck<br>
+
+      h3 Contact
+      p.
+        Contact form coming soon!
+
+
+    
