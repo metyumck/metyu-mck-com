@@ -5,18 +5,9 @@ Generated on 2016-03-05 using
 
 ## Description
 
-This is an example readme file.
-Describe your site/app here.
+Personal website for Matthew McKenzie. See it live at http://metyu-mck.com
 
 ## Technologies used
-
-JavaScript
-- [Browserify](http://browserify.org/)
-- [Node](https://nodejs.org/)
-
-Testing
-- [Karma](http://karma-runner.github.io/0.13/index.html)
-- [Mocha](http://mochajs.org/)
 
 Styles
 - [Sass](http://sass-lang.com/) via ([node-sass](https://github.com/sass/node-sass))
@@ -31,14 +22,10 @@ Optimization
 Server
 - [BrowserSync](http://www.browsersync.io/)
 
-Linting
-- [ESlint](http://eslint.org/)
-
 Automation
 - [Gulp](http://gulpjs.com)
 
 Code Management
-- [Editorconfig](http://editorconfig.org/)
 - [Git](https://git-scm.com/)
 
 
